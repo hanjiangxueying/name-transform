@@ -1,0 +1,184 @@
+{
+  "name": "name-transform",
+  "displayName": "name transform",
+  "description": "Visual Studio Code Name Transform Extension",
+  "publisher": "hanjiangxueying",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "pricing": "Free",
+  "icon": "icon.png",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "name-transform.snake",
+        "title": "蛇形 (name_transform)"
+      },
+      {
+        "command": "name-transform.camelCase",
+        "title": "小驼峰 (nameTransform)"
+      },
+      {
+        "command": "name-transform.upperCamelCase",
+        "title": "大驼峰 (NameTransform)"
+      },
+      {
+        "command": "name-transform.kebab",
+        "title": "横线 (name-transform)"
+      },
+      {
+        "command": "name-transform.constant",
+        "title": "常量 (Name_Transform)"
+      },
+      {
+        "command": "name-transform.lowercase",
+        "title": "小写 (name_transform)"
+      },
+      {
+        "command": "name-transform.uppercase",
+        "title": "大写 (NAME_TRANSFORM)"
+      },
+      {
+        "command": "name-transform.reverse",
+        "title": "倒序 (MROFSNART_EMAN)"
+      }
+    ],
+    "keybindings": [
+      {
+				"command": "name-transform.constant",
+				"key": "ctrl+shift+1",
+				"mac": "ctrl+cmd+1",
+				"when": "editorTextFocus"
+			},
+      {
+				"command": "name-transform.upperCamelCase",
+				"key": "ctrl+shift+2",
+				"mac": "ctrl+cmd+2",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "name-transform.uppercase",
+				"key": "ctrl+shift+3",
+				"mac": "ctrl+cmd+3",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "name-transform.reverse",
+				"key": "ctrl+shift+4",
+				"mac": "ctrl+cmd+4",
+				"when": "editorTextFocus"
+			},
+      {
+				"command": "name-transform.kebab",
+				"key": "ctrl+shift+5",
+				"mac": "ctrl+cmd+5",
+				"when": "editorTextFocus"
+			},
+      {
+				"command": "name-transform.snake",
+				"key": "ctrl+shift+6",
+				"mac": "ctrl+cmd+6",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "name-transform.camelCase",
+				"key": "ctrl+shift+7",
+				"mac": "ctrl+cmd+7",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "name-transform.lowercase",
+				"key": "ctrl+shift+8",
+				"mac": "ctrl+cmd+8",
+				"when": "editorTextFocus"
+			}
+		],
+    "submenus": [
+      {
+        "id": "name-transform",
+        "label": "命名转换"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "name-transform",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        }
+      ],
+      "name-transform": [
+        {
+          "command": "name-transform.snake",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.camelCase",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.upperCamelCase",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.kebab",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.constant",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.lowercase",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.uppercase",
+          "group": "2_workspace"
+        },
+        {
+          "command": "name-transform.reverse",
+          "group": "2_workspace"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "humps": "^2.0.1"
+  },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/hanjiangxueying/name-transform"
+	}
+}
